@@ -104,11 +104,62 @@ q:  不保存文件，退出vi
 -exec  
 4.字符串搜索命令grep
 
-四.帮助命令 man
+四.帮助命令 
+1.man
 man     命令名    不指定等级号的话，默认打开最低级命令
 man 1-9 命令名    查询几级命令
 man -f  命令名    查看该命令有哪些级  （whereis 命令名也可以）
 apropos
+ 
+2.shell
+交互界面自带的命令 如cd
+不能用man，要用help
+
+3.info
+p
+n
+q 退出
+ 
+ 五.压缩与解压缩命令
+ 常用的压缩文件  .zip   .gz   .bz2   .tar.gz   .tar.bz2  
+1. zip  压缩文件名  压缩原文件
+ -r   压缩目录，将目录中的文件都进行压缩
+ 解压缩
+unzip
+ 
+2.gzip  压缩为 .gz文件 同时删除源文件
+ -c  保留源文件
+ -r  
+ -d  解压缩
+
+
+3. bz2的格式
+
+bzip2 压缩
+-d 解缩
+ 
+4.打包命令tar
+a.
+tar -cvf
+-c 压缩
+-v 
+-f 显示压缩文件的文件名
+ 
+解打包
+tar -xvf 
+-x 解压缩
+
+
+b.
+tar -jcvf
+-v 
+-f 显示压缩文件的文件名
+解打包
+tar -jxvf 
+
+.tar.bz2
+ 
+ 
  
  
  
