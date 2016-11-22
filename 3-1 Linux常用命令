@@ -139,7 +139,7 @@ bzip2 压缩
 -d 解缩
  
 4.打包命令tar
-a.
+a.   tar.gz
 tar -cvf
 -c 压缩
 -v 
@@ -158,17 +158,61 @@ tar -jcvf
 tar -jxvf 
 
 .tar.bz2
+
+六.关机与重启命令
+shutdown 选项 时间
+-c  取消前一个关机命令
+-r  时间（now）      重启 等待重启时，无法做事情
+-h  关机
+当服务器高速运转的时候 强制关机或重启可能导致硬盘损坏
+
+其他关机命令
+halt
+poweroff
+init 0
+
+其他重启命令
+reboot
+init 6
+
+date     查看系统时间
+init 5   启动图形界面（X）
+runlevel 查看系统当前运行级别  从什么级别到什么级别
+运行级别 0 关机
+         1 单用户
+         2 不完全多用户
+         3 完全多用户
+         4 未分配
+         5 图形界面
+         6 重启
+
+
+cat      查看文件内容
+logout   在远程登陆时，要进行logout，不能直接关掉远程工具
+ 
+七.其他常用命令 
+ 1.挂载命令
+ windows当中的分配盘符（U盘插入自动的），linux中叫做挂载点（一个空目录即可）
+ 1.1查询与自动挂载
+ /dev 目录下边是所有的特殊设备
+ /etc/fstab  开机自动挂载文件，光盘，U盘不建议做成自动挂载，因为如果没有插入光盘和U盘，系统会自己崩溃
+ 
+mount  查询现在已经挂载的
+mount -t文件系统  -o特殊选项  设备文件名 挂载点
+ -t系统的文件的格式，ext3，ext4，iso9660（光盘）
+ 特殊选项
  
  
+ remount 重新挂载指定分区
+ exec/noexec 执行/不执行
  
  
+ linux 中所有的脚本文件 开头都必须是 #！/bin/bash
+ echo “hello world”  //输出hello world
  
+ 挂载光盘操作
  
- 
- 
- 
- 
- 
+ mnt/cdrom 
  
  
  
