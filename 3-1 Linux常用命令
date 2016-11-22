@@ -81,9 +81,9 @@ q:  不保存文件，退出vi
 
 
 三. 文件搜索命令
-文件搜索命令locate                 搜索非常快 数据库每天才更新一次   可以使用updatedb更新数据库    只能按照文件名来搜索
-命令搜索      whereis与which       不能找到cd的执行文件，cd是shell自带的       想知道自己是谁  whoami
-文件搜索命令find  功能强大    find  搜索范围  搜索条件
+1.文件搜索命令locate                 搜索非常快 数据库每天才更新一次   可以使用updatedb更新数据库    只能按照文件名来搜索
+2.命令搜索      whereis与which       不能找到cd的执行文件，cd是shell自带的       想知道自己是谁  whoami
+3.文件搜索命令find  功能强大    find  搜索范围  搜索条件
      参数：  避免大范围搜索，耗费大量资源
             通配符  *     匹配任意内容
                    ？    匹配任意一个字符
@@ -97,14 +97,18 @@ q:  不保存文件，退出vi
        -atime  文件访问时间  
        -ctime  改变文件属性
        -mtime  修改文件内容
+-size 
+多条件搜索
+-a  and
+-o  or
+-exec  
+4.字符串搜索命令grep
 
-
-
-
-
-
-字符串搜索命令grep
-find
+四.帮助命令 man
+man     命令名    不指定等级号的话，默认打开最低级命令
+man 1-9 命令名    查询几级命令
+man -f  命令名    查看该命令有哪些级  （whereis 命令名也可以）
+apropos
  
  
  
