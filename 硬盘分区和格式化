@@ -1,0 +1,48 @@
+一 主分区和扩展分区总数不能超过4个
+二 扩展分区最多只能有一个
+三 扩展分区不能直接存取数据，必须在里面建立逻辑分区
+
+
+硬盘空间消耗殆尽怎么办？
+增加新的硬盘
+硬盘是linux自动识别的，但是不能直接使用，必须对硬盘进行分区，格式化，挂载才能使用
+
+1.fdisk，MBR分区（msdos）
+fdisk 
+-l 列出硬盘
+fdisk  dev/sda
+n 添加分区
+d 删除分区
+p 查看分区
+
+
+分区模式之MBR（主分区不超过4个，单个分区容量最大2TB）
+分区模式之GPT（主分区个数几乎没有限制，单个分区容量几乎没有限制）
+GPT中不太适合X86架构的系统（windows）
+
+2.parted，MBR分区，GPT分区都适用
+mklabel gpt
+print       查看当前硬盘分区详情
+print all   全部硬盘分区详情
+mkpart      添加分区 
+mkpart test 2000 3000（以MB为单位 2000-3000分成一个新的分区名字为test）
+固态硬盘，4k对其性能很重要，一般会舍弃掉第1M，来达到最佳性能
+rm  分区编号  删除分区
+unit GB（更改单位为GB）
+
+
+3.格式化
+MBR中的扩展分区不能格式化
+mkfs.(格式名) (要格式化的分区名)
+mkfs.ext3 /dev/sdb1
+mkfs -t ext3 /dev/sdb1
+
+4.挂载分区
+一般挂载在 /mnt文件夹下
+临时挂载
+mkdir -p /mnt/imooc
+mount /dev/sdb1 /mnt/imooc
+取消挂载 umount /mnt/imooc
+vim + /etc/fsta 永久挂载
+
+
