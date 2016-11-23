@@ -1,0 +1,46 @@
+一.VIM编辑器概述
+VI-> VIM
+VIM支持多级撤销 U
+VIM可以跨平台运行
+VIM支持语法高亮
+
+二.VI编辑器的操作模式
+Command Mode   命令模式
+Insert Mode    输入模式
+Last line Mode 底行模式
+
+vim abc（打开abc文件）
+a      命令模式->输入模式
+按Esc  输入模式->底行模式
+vim + abc（打开abc文件，并且把光标定在最后一行）
+vim +3 abc(打开abc文件，并且把光标定在第3行)
+vim +/imooc abc(打开abc文件，并且把光标定在imooc第一次出现的地方)
+vim a b c(创建a,b,c三个文件，:n,切换下一个文件，:N切换到上一个文件)
+底行模式常用指令
+:w 保存
+:q 退出
+:! 强制执行
+:ls (列出打开的文件)
+hjkl  光标左移 下移 上移 右移
+ctrl + f  向下翻页    forword
+ctrl + b  向上翻页    backword 
+ctrl + d  向下翻半页  down
+ctrl + u  向上翻半页  up
+ 
+三.磁盘管理
+df 查看磁盘分区使用状况
+l  仅显示本地磁盘（默认）
+a  显示所有文件系统的磁盘使用情况，包含比如/proc/
+h  以1024进制计算最合适的单位显示磁盘容量
+H  以1000进制计算最合适的单位显示磁盘容量
+T  显示磁盘分区类型
+t  显示指定类型文件系统的磁盘分区
+x  不显示指定类型文件系统的磁盘分区
+
+du 用于统计磁盘上的文件大小
+-b 以byte为单位统计文件
+-k 以KB
+-m 以MB
+-s 指定统计目标 du -s *.zip
+
+
