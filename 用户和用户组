@@ -1,0 +1,37 @@
+/etc/group 存储当前系统中所有用户组信息
+组名：组密码占位符（x）：组编号：组中用户列表
+
+/etc/gshadow 存储当前系统中用户组的密码信息
+组名：组密码：组管理者：组中用户列表
+
+/etc/passwd 存储当前系统中所有用户的信息
+用户名：密码占位符：用户编号：用户组编号：用户注释信息：用户主目录：shell类型
+
+
+用户组的有关命令
+给公司的每个部门分一个用户组
+groupadd -g 888 boss(新建一个名字为boss，编号为888的用户组)
+groupadd sexy
+useradd -g sexy cangls(在sexy用户组中添加一个用户)
+usermod -l sdf cangls ()
+usermod -d /home/sdf sdf 
+usermod -g sexy imooc（更改用户组名为imooc）
+userdel sdf(删除sdf)
+userdel -r sdf(删除sdf和他的文件)
+groupmod -n name2 name1(修改名字)
+groupmod -g 668 name2 (更改组的编码)
+passwd -l cangls(锁定某用户，他就不能再进行)
+passwd -u cangls（解锁）
+passwd -d cangls(可以无密码登陆)
+
+gpasswd -a cangls boss（让cangls（sexy组）附属于boss组）
+newgrp boss（cangls 自己用来切换用户组）
+gpasswd -d cangls boss（让cangls（sexy组）不再附属于boss组）
+gpasswd sexy （修改用户组密码）
+su username（切换用户）
+chfn sexy（设置用户资料）
+finger sexy（显示用户详细资料）
+
+
+
+
