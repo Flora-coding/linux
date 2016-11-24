@@ -46,3 +46,17 @@ mount /dev/sdb1 /mnt/imooc
 vim + /etc/fsta 永久挂载
 
 
+如何为硬盘添加swap交换分区？
+1.建立一个普通的Linux分区
+2.修改分区类型的16进制编码
+3.格式化交换分区
+4.启动交换分区
+
+select 选择一个硬盘
+t 选择一个分区
+w 保存
+swapon  /dev/sdb6   开启swap 
+free    查看swap加载状况
+swapoff  /dev/sdb6  关闭swap
+
+
