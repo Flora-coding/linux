@@ -8,6 +8,7 @@
 2.二进制包（RPM包，系统默认包）  windows
 一.RPM包位置在光盘里 Package
    包名称-版本号-发布次数-centos-i686适合的硬件平台-rpm包扩展名
+   （386,486,586都是普通微机平台，但是如果是X64，就是只适用于64位的linux系统
    RPM包依赖性
    树形依赖：a->b->c
    环形依赖：a->b->c->a
@@ -16,17 +17,130 @@
 
 二.RPM包安装命令
 1.包全名与包名
-包全名 ：操作的包是没有安装的软件包时，使用包全名。而且要注意路径
-包名：   操作已经安装的软件包时，使用包名
+包全名 ：操作的包是没有安装的软件包时，使用包全名。而且要注意路径（安装，升级）
+包名：   操作已经安装的软件包时，使用包名（卸载，查询）
 
-2.RPM安装
+2.rpm在线管理
 rpm -ivh 包全名
 选项：
--i
--v  
--h  
+-i （install） 安装
+-v （verbose） 显示详细信息
+-h （hash）    显示进度
 --nodeps 不检测依赖性
 
+rpm包的升级与卸载
+rpm -Uvh 包全名
+选项： 
+   -U(upgrade)  升级 
+   -e 卸载（卸载也有依赖性，但是卸载可以使用 --nodeps）
 
+
+查询是否已经安装某个包
+rpm -qa | grep httpd
+-i information 查询软件信息
+-p package  查询未安装包的信息
+-l list  列表
+-f file 查血系统文件属于哪个软件包
+-R  查询安装包的依赖性
+
+RPM包校验
+rpm -V 安装包名 
+
+S 大小被修改
+M 权限被修改
+5 MD5校验和被修改（可以看成文件内容是否被改变）
+D 设备的主从代码是否改变
+L 文件路径是否改变
+
+文件类型
+c （config file）配置文件
+
+
+RPM包中文件提取方法
+
+rpm2cpio 包全名| cpio -idv.文件绝对路径（把rpm包转成cpio格式，保存到当前目录下）
+
+cpio 选项 <[文件|设备]
+-i 还原
+-d 还原
+
+
+
+3.yum在线管理
+将所有软件包放到官方服务器上，当进行yum在线安装时，可以自动解决依赖性问题
+
+yum源文件
+gpgcheck=1，开启数字证书验证，当下载的安装包是有问题的就会报错
+enabled=1，使yum源配置文件生效
+
+
+光盘搭建yum源
+使网络yum源失效，使本地yum源生效
+
+yum命令
+yum list 查询所有可用软件包列表
+yum search 
+yum -y install 包名(-y 自动回复y )
+gcc   c语言编译器
+
+升级
+yum -y update httpd
+yum -y remove httpd
+服务器使用最小化安装，用什么软件安装什么，尽量不卸载
+
+YUM软件组管理命令
+yum grouplist     列出所有可用的软件组
+yum groupinstall  组安装
+yum groupremove   卸载组名
+
+yum groupinstall "Chinese Support"
+LANG=zh_CN.utf8
+
+a.源码包和RPM包的区别
+安装位置不同。
+
+RPM包在centos.iso中就有，源码包要从网上下载
+RPM包默认安装路径
+/etc/               配置文件安装目录 
+/usr/bin/           可执行的命令安装目录
+/usr/lib/           程序所使用的函数库保存位置
+/usr/share/doc/     基本的软件使用手册
+/usr/share/man/     帮助文件位置
+
+
+
+b.源码包安装过程
+源代码保存位置 /usr/local/src/
+安装在指定位置当中 /usr/local/软件名/
+没有卸载命令，如果不指定位置会安装的到处都是，所以要指定位置
+
+安装位置不同带来的影响
+RPM包安装的服务可以使用系统服务管理命令（service）来管理，
+而源码包安装的服务则不能被服务管理命令管理，因为没有安装到默认路径中。
+所以只能用绝对路径进行服务的管理
+
+
+4.源码包管理
+安装位置不同，所以可以安装一个源码包的，安装一个RPM的，但是只能用一个，因为会占用相同的端口号
+所以不会安装两个。
+a.解压
+进入到解压文件夹中
+b  ./configure 软件配置与检查
+定义需要的功能选项
+检测系统环境是否符合安装要求 --help可以看功能选项
+把定义好的功能选项和检测系统环境的信息都写入Makefile文件，用于后续的编辑
+
+./configure  --prefix=/usr/local/apache2 (指定安装路径)
+
+c.编译
+
+编译 make
+（make clean  清除编译的文件）
+安装make install 
+
+
+
+
+5.脚本安装包
 
 
