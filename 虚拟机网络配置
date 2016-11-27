@@ -1,0 +1,66 @@
+1.配置Linux IP
+ONBOOT=yes
+2.启动网卡 service network restart
+3.如果有UUID有冲突，修改UUID
+vi /etc/sysconfig/network-scripts/ifcfg-eth0 删除MAC地址行
+
+rm -rf /etc/udev/rules.d/70-persistent-net.rules 删除网卡和MAC地址绑定文件
+
+重启动系统
+
+Linux网络命令
+3.1
+网卡启动 关闭命令
+ifup 网络设备名  启动网卡
+ifdown 网络设备名 关闭网卡
+3.2
+查看网络状态
+netstat 选项
+-t 列出了TCP协议端口
+-u 列出UDP协议端口
+-n 不使用域名与服务名，而使用IP地址和端口号
+-l 仅列出在监听状态的网络服务
+-a 列出所有的网络连接
+-rn 查看路由表和网关
+
+
+查看有多少人已经连接
+netstat -an | grep ESTABLISHED | wc -l 
+
+
+nslookup 查看域名对应ip
+
+
+网络测试命令
+1.ping命令
+ping     -c 3 （只ping三次）
+2.telnet
+telnet 192.168.0.255 端口号
+远程管理（不加端口号，但是已经不推荐使用，因为是明文协议，不安全）和端口探测
+
+3.traceroute
+路由跟踪命令
+大多数家庭禁止了ping，所以效果也不是很好
+
+4.wget命令
+下载命令
+wget 下载链接
+
+5.
+tcpdump -i eth0 -nnX port 21
+选项：
+  -i   指定网卡接口
+  -nn  将数据包中的域名与服务转为IP和端口
+  -X   以十六进制和ASCII码显示数据包内容
+  port 指定监听的端口
+
+
+
+
+
+
+
+
+
+
+
