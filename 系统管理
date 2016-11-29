@@ -109,3 +109,18 @@ lsb_release -a 查看发行版本
 lsof  /sbin/init 查询某个文件被哪个进程使用
 lsof -c httpd    查看httpd进程调用了哪些文件
 lsof -u root     查看root用户调用了哪些文件
+
+四.系统定时任务
+1.at一次性定时任务
+ 确定at安装chkconfig --list | grep atd 
+ service atd status
+ at  时间
+ 02:30
+ now + 2 minutes
+ atq 显示已被定时要被执行的任务
+ atm 删除
+ 
+2.crontab循环定时任务
+ -e 编辑定时任务
+ -l 查询
+ -r 删除
