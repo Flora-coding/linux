@@ -35,7 +35,7 @@ rpm -Uvh 包全名
    -e 卸载（卸载也有依赖性，但是卸载可以使用 --nodeps）
 
 
-查询是否已经安装某个包
+查询是否已安装文件
 rpm -qa | grep httpd
 -i information 查询软件信息
 -p package  查询未安装包的信息
