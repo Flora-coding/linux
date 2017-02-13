@@ -1,4 +1,5 @@
 1.chroot命令用来在指定的根目录下运行指令。
+
 chroot，即 change root directory （更改 root 目录）。在 linux 系统中，系统默认的目录结构都是以/，即是以根 (root) 开始的。
 而在使用 chroot 之后，系统的目录结构将以指定的位置作为/位置。 在经过 chroot 命令之后，系统读取到的目录和文件将不在是旧系统根下的而是新根下
 （即被指定的新的位置）的目录结构和文件，
@@ -13,3 +14,32 @@ chroot，即 change root directory （更改 root 目录）。在 linux 系统�
 选项 --help：在线帮助； --version：显示版本信息。 
 参数 目录：指定新的根目录； 指令：指定要执行的指令。 
 实例 将target作为根目录（运行其中的/bin/sh）: chroot target /bin/sh
+
+
+2.ubuntu su sudo
+（1）su命令短暂的更改用户身份
+
+su命令的使用格式如下：
+
+su option username arguments
+
+单独使用su命令，你变成root用户，但是仍然保留你原来的常规用户的环境变量，你的当前目录也不会变化。
+
+你使用su -命令，你变成root用户，并且继承了root用户的环境变量
+
+想要变成其他用户，需要在命令行中指定用户名：su – other_user
+
+如果要回到你原来的用户身份，使用exit命令。
+
+（2）sudo命令授予超级用户权限
+
+sudo是和命令结合使用的。sudo命令的使用格式如下：
+
+sudo command
+
+3.sudo nautilus
+这个命令就是以root权限打开一个窗口，来管理文件。
+
+4.删除使用apt-get安装的文件
+
+sudo apt-get autoremove
