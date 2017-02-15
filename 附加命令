@@ -43,7 +43,7 @@ sudo command
 4.删除使用apt-get安装的文件
 
 sudo apt-get autoremove
-last命令可以用来查看用户的登陆记录。
+
  
 5.
 last显示之前登录的用户
