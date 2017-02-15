@@ -43,3 +43,26 @@ sudo command
 4.删除使用apt-get安装的文件
 
 sudo apt-get autoremove
+last命令可以用来查看用户的登陆记录。
+ 
+5.
+last显示之前登录的用户
+history命令可以查看命令的执行历史。按下Ctrl+R然后输入关键字。
+例如，我搜索”cat”，则显示以前的命令中含有”cat”的命令“cat anaconda-ks.cfg”。按回车，就可以重新执行这条命令了。
+常用日志文件如下：
+　　　　access-log　　　纪录HTTP/web的传输 
+　　　　acct/pacct　　　纪录用户命令 
+　　　　aculog　　　　　纪录MODEM的活动 
+　　　　btmp　　　　　　纪录失败的纪录 
+　　　　lastlog　　　　 纪录最近几次成功登录的事件和最后一次不成功的登录 
+　　　　messages　　　　从syslog中记录信息（有的链接到syslog文件） 
+　　　　sudolog　　　　 纪录使用sudo发出的命令 
+　　　　sulog　　　　　 纪录使用su命令的使用 
+　　　　syslog　　　　　从syslog中记录信息（通常链接到messages文件） 
+　　　　utmp　　　　　　纪录当前登录的每个用户 
+　　　　wtmp　　　　　　一个用户每次登录进入和退出时间的永久纪录 
+　　　　xferlog　　　　 纪录FTP会话
+
+
+6.linux下patch命令使用详解---linux打补丁命令
+功能说明：修补文件。
