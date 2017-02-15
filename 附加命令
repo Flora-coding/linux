@@ -66,3 +66,33 @@ history命令可以查看命令的执行历史。按下Ctrl+R然后输入关键�
 
 6.linux下patch命令使用详解---linux打补丁命令
 功能说明：修补文件。
+
+7.apt-cache是Linux下的apt软件包管理工具，使用它能查询到apt的二进制软件包缓存文件。
+
+apt-cache show package_name
+显示指定软件包的信息，包括版本号，安装状态和包依赖关系等.
+
+apt-cache search package_name
+搜索软件包，可以按关键字查找软件包,通常用于查询的关键字会使用软件包的名字或软件包的一部分.
+
+apt-cache showpkg package_name
+显示软件包的依赖关系信息.
+
+apt-cache stats
+显示当前系统所使用的数据源的统计信息,用户可以使用该命令查看数据源的相关统计信息.
+
+apt-cache policy package_name
+显示软件包的安装状态和版本信息.
+
+apt-cache depends package_name
+显示指定软件包所依赖的软件包。当用户需要了解某个软件包依赖于其他哪些包时,可以使用apt-cache depends来查询包依赖关系.
+
+apt-cache rdepends package_name
+查询指定软件包的反向依赖关系,即那些其他的软件包需要依赖你所指定的软件包做为安装和运行的必须条件.
+
+apt-cache dump
+显示缓存中的每个软件包的简要描述信息.
+
+apt-cache unmet
+显示不符合一致性的依赖关系.
+
