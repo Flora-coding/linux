@@ -45,7 +45,7 @@ q: 退出top
 kill -l 查看可用的进程信号
 -1 平滑重启（配置文件更新一下，但是不会t出已登录用户）
 kill -1 1523
-killall
+killall（通过命令名称来杀死进程）
 
 -9 强制终止
 -15 默认
@@ -136,7 +136,9 @@ lsof -u root     查看root用户调用了哪些文件
 Job control的命令
 a.	直接将命令丢到后台中“执行”的&（在命令后边之间加上&即可）
 b.	查看目前的后台工作状态 jobs （-l 同时列出PID的号码 –r仅列出正在后台run的工作 –s 仅列出正在后台中暂停的工作）
-c.	将后台工作拿到前台来处理：fg（fg jobnumber）
+c.	将后台工作拿到前台来处理 fg（fg %jobnumber）
 d.	Ctrl+Z可以让程序丢到后台去暂停
-e.	让工作在后台下的状态变成运行中：bg （bg jobnumber）
+e. 让工作在后台下的状态变成运行中：bg （bg %jobnumber）
+f. 管理后台当中的工作 kill -signal %jobnumber
 
+进程管理是 kill jobnumber
