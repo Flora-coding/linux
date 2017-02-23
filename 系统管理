@@ -123,3 +123,20 @@ lsof -u root     查看root用户调用了哪些文件
  -e 编辑定时任务
  -l 查询
  -r 删除
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+二.工作管理（job control）
+Job control的命令
+a.	直接将命令丢到后台中“执行”的&（在命令后边之间加上&即可）
+b.	查看目前的后台工作状态 jobs （-l 同时列出PID的号码 –r仅列出正在后台run的工作 –s 仅列出正在后台中暂停的工作）
+c.	将后台工作拿到前台来处理：fg（fg jobnumber）
+d.	Ctrl+Z可以让程序丢到后台去暂停
+e.	让工作在后台下的状态变成运行中：bg （bg jobnumber）
+
