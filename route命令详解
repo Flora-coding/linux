@@ -1,0 +1,46 @@
+linux route命令的使用详解
+使路由永久保存的方法
+1.在/etc/rc.local里添加
+2.在/etc/sysconfig/network里添加到末尾
+3.在/etc/sysconfig/static-router： any net x.x.x.x/24 gw y.y.y.y
+
+[root@linux ~]# route [-nee]
+[root@linux ~]# route add [-net|-host] [网域或主机] netmask [mask] [gw|dev]
+[root@linux ~]# route del [-net|-host] [网域或主机] netmask [mask] [gw|dev]
+观察的参数：
+   -n  ：不要使用通讯协定或主机名称，直接使用 IP 或 port number；
+   -ee ：使用更详细的资讯来显示
+  增加 (add) 与删除 (del) 路由的相关参数：
+   -net    ：表示后面接的路由为一个网域；
+   -host   ：表示后面接的为连接到单部主机的路由；
+   netmask ：与网域有关，可以设定 netmask 决定网域的大小；
+   gw      ：gateway 的简写，后续接的是 IP 的数值，与 dev 不同；
+   dev     ：如果只是要指定由那一块网路卡连线出去，则使用这个设定，后面接 eth0 等
+   
+   
+   
+格式：route add default gw {IP-ADDRESS} {INTERFACE-NAME}
+用于设置默认路由，其中，
+参数{IP-ADDRESS): 用于指定路由器（网关）的IP地址；
+参数{INTERFACE-NAME}: 用于指定接口名称，如eth0。使用/sbin/ifconfig -a可以显示所有接口信息。
+例:route add default gw mango
+
+
+
+格式：route add -net {NETWORK-ADDRESS} netmask {NETMASK} dev {INTERFACE-NAME}
+添加到指定网络的路由规则，其中
+参数{NETWORK-ADDRESS}: 用于指定网络地址
+参数{NETMASK}: 用于指定子网掩码
+参数{INTERFACE-NAME}: 用于指定接口名称，如eth0。
+例:route add -net 192.56.76.0 netmask 255.255.255.0 dev eth0
+例:route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
+
+
+ 
+格式：route add -net {NETWORK-ADDRESS} netmask {NETMASK} reject
+设置到指定网络为不可达，避免在连接到这个网络的地址时程序过长时间的等待，直接就知道该网络不可达。
+例:route add -net 10.0.0.0 netmask 255.0.0.0 reject
+格式：route del -net {NETWORK-ADDRESS} netmask {NETMASK} dev {INTERFACE-NAME}
+格式：route del -net {NETWORK-ADDRESS} netmask {NETMASK} reject
+用于删除路由设置。参数指定的方式与route add相似。
+
