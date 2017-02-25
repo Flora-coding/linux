@@ -1,0 +1,36 @@
+1.定义
+  服务 ：常驻在内存中的进程，且可以提供一些系统或网络功能，就是服务
+  daemon：提供服务的进程就叫做daemon（事实上要达成某个服务就需要一个daemon在后台运行，没有这个daemon就不会有service，所以不用把daemon和service分的太清楚）
+  一般来说，当我们以文本模式或图形模式（非单用户维护模式）完整开机进入Linux主机后，系统已经为我们提供了很多的服务了，包括打印服务，工作调度服务，
+  邮件管理服务等，那么这些服务是如何被启动的？它们的工作类型如何？
+2.分类
+  根据daemon的启动和管理方式来区分，基本上，可以将daemon分为可独立启动的stand alone，与通过一个super daemon来统一管理的服务两大类。
+  stand alone ：daemon启动并加载到内存后就一直占用内存与系统资源。优点就是：因为是一直存在内存内持续的提供服务，因此对于发生客户端的请求时，stand
+  alone 的daemon响应速度较快。常见的stand alone daemon 有www的daemon（httpd），FTP（vsftpd）等
+  
+  super daemon： 一个特殊的daemon来统一管理
+  当没有客户端请求时，各项服务都是未启动的情况，等到有来自客户端的请求时，super daemon才唤醒相对应的服务。常见的telnet服务。
+  
+  3.daemon的启动脚本与启动方式
+  
+  /etc/init.d/：启动脚本放置处
+  /etc/sysconfig/：各服务的初始化环境配置文件
+  
+  /etc/各服务各自的配置文件
+  /var/lib/各服务产生的数据库
+  /var/run/各服务的程序的PID记录处
+  
+  
+  常用命令
+  
+  /etc/init.d/name 启动某个daemon
+  /etc/init.d/name  status  查看该daemon的状态
+  /etc/init.d/name  restart  重启该daemon
+  
+  或者service命令也可以启动daemon
+  service name
+  service  --status -all 显示所有daemon的运行状态
+  
+  
+  
+  
