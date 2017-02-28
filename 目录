@@ -1,0 +1,18 @@
+
+/bin: 
+bin为binary的简写，主要放置系统的必备执行文件，例如: 
+cat、cp、chmod df、dmesg、gzip、kill、ls、mkdir、more、mount、rm、su、tar等。 
+
+/usr/bin: 
+主要放置应用程序工具的必备执行文件，例如： 
+c++、g++、gcc、chdrv、diff、dig、du、eject、elm、free、gnome*、 gzip、htpasswd、kfm、ktop、last、less、locale、m4、make、man、mcopy、ncftp、
+newaliases、nslookup passwd、quota、smb*、wget等。 
+
+/sbin: 
+主要放置系统管理的必备程序，例如: 
+cfdisk、dhcpcd、dump、e2fsck、fdisk、halt、ifconfig、ifup、 ifdown、init、insmod、lilo、lsmod、mke2fs、modprobe、quotacheck、reboot、rmmod、 
+runlevel、shutdown等。 
+
+/usr/sbin: 
+主要放置网路管理的必备程序，例如: 
+dhcpd、httpd、imap、in.*d、inetd、lpd、named、netconfig、nmbd、samba、sendmail、squid、swap、tcpd、tcpdump等
