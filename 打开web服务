@@ -1,0 +1,11 @@
+1、在机器上运行nc（用于创建网络连接的工具）命令，登陆本机的web服务，且明确指定客户端使用端口12345与服务器通信。
+输入：root@linux_ever:~# nc -p 12345 192.168.0.141  80
+输出：没有任何输出，表明没有开启web服务
+
+2、安装apache2.0web服务器软件
+root@linux_ever:~# apt-get  install  apache2
+
+3、重新启动apache2
+root@linux_ever:~# /etc/init.d/apache2 restart
+
+4、重新在机器上运行nc命令，登陆本机的web服务，且明确指定客户端使用端口12345与服务器通信。
