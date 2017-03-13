@@ -96,3 +96,14 @@ apt-cache dump
 apt-cache unmet
 显示不符合一致性的依赖关系.
 
+
+
+8.
+查看Ubuntu中安装的软件    dpkg -l | grep ftp
+查看CentOS中安装的软件    rpm -qa | grep
+
+9.关闭防火墙
+Ubuntu
+ufw disable
+CentOS
+service iptables stop
