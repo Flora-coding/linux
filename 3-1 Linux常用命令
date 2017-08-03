@@ -39,20 +39,22 @@ chmod -R 777 文件夹名字
 将a.sh重命名为b.sh
 rename  a  b  b.sh简单些
 mv a.sh b.sh
-rename批量重命名方便些，
+rename批量重命名方便些
 把当前目录下，所有的sh文件重命名为txt文件:rename .sh .txt *.sh
+
 二. 文件处理命令
 目录处理命令
-建立目录  mkdir  -p(表示递归创建) japan/cangls
-
-切换目录  cd     
+建立目录  mkdir   japan/cangls
+mkdir [-m 模式] [-p] 目录名
+-p(表示递归创建)
+切换目录   cd     
           cd ~ 进入当前用户家目录
           cd+回车 进入当前用户家目录
           cd - 进入上次目录
           cd .. 进入上一级目录
           cd ./相对目录
           cd ../跳到上一级再进入相对目录
-删除目录  rmdir
+删除目录   rmdir
           rmdir 只能删除空目录
           rm  用来删除文件
           rm -r  用来删目录或文件
@@ -61,8 +63,8 @@ rename批量重命名方便些，
 拷贝文件  cp 文件 到哪个目录
           选项： -r 复制目录
                  -p 连带文件属性
- 	 	 -d 若源文件是链接文件，则复制链接属性
-    		 -a 相当于 -pdr
+ 	 	            -d 若源文件是链接文件，则复制链接属性
+    		        -a 相当于 -pdr
 
 vi   打开文件
 :w   保存文件但不退出vi
